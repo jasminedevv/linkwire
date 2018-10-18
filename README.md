@@ -1,3 +1,4 @@
+Under Development.
 # linkwire
 A gamified critical thinking worksheet for adults.
 
@@ -24,7 +25,11 @@ key = ')8^((t2xw*p969aqa=h5cf*xl4+z^a(c(p40ix^%x&5z8tx8$g'
 `python3 manage.py migrate`
 
 `python3 manage.py runserver`
-- go to localhost:8000 in your browser (there is currently no home page but try /accounts and /admin)
+- go to localhost:8000
 
-## Future Plans
-Make it a React Native app
+## To do list:
+- Add the frontend functionality with Ajax
+- Deploy to Heroku
+
+### Future Plans
+- Make it a React Native app
