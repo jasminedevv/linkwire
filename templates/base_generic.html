@@ -13,11 +13,15 @@
     <link rel="stylesheet" href="jaslib.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="favicon.ico" />
-
+    {% block styles %} {% endblock %}
 </head>
 
 <body>
+    <div style="background-color: rgb(8, 57, 77)"><br><br></div>
+    <br><br>
     {% block content %} {% endblock %}
 </body>
+
+{% block scripts %} {% endblock %}
 
 </html>
