@@ -12,12 +12,12 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'linkwire.herokuapp.com']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'djangogirls',
+        'NAME': 'linkwire',
         'USER': 'name',
         'PASSWORD': '',
         'HOST': 'localhost',
