@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import render, redirect
-from app_questions.views import answer, home
+from app_questions.views import answer, home, ajax_test, questions
 
 
         
@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('answer/', answer),
+    path('test/', ajax_test),
+    path('questions/', questions),
     path('', home)
 ]
 #Add Django site authentication urls (for login, logout, password management)

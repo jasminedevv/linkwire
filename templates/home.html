@@ -1,65 +1,54 @@
-{% extends "base_generic.html" %} {% block styles %}
+{% extends "base_generic.html" %} 
+
+{% block styles %}
 <style>
-    body {
-        background-color: #efefef;
-    }
 
     .card {
-        background-color: #fff;
         padding: 6px;
         text-align: center;
+        max-width: 400px;
+        margin: 0 auto;
     }
-
-    .hide {
-        display: none;
-    }
-
-    .cover {
-        background-color: rgb(8, 57, 77);
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        z-index: 2;
-        top: 0;
-        left: 0;
-    }
-
-    .front {
-        z-index: 3;
-        position: absolute;
-        top: 20px;
-        margin: 0 10vw;
-        width: 80vw;
-        max-width: 100%;
-    }
-
 </style>
-{% endblock %} {% block content %}
+{% endblock %} 
+
+
+{% block content %}
+
+
+<div class="bar"></div>
+<br><br>
 <div class="container">
     <h1>Linkwire</h1>
-
-    <p>Welcome {{ user.first_name }}</p>
-    <p>You don't have any stats yet.</p>
-
-    <button class="btn btn-primary">Play</button>
-    <br><br>
+    <p>Can you separate facts from spin?</p>
+    <h2>Welcome {{ user.first_name }}</h2>
+    <div class="progress">
+        <div class="progress-bar bg-success" role="progressbar" style="width: {{ user.score.total_right }}%" aria-valuenow="{{ user.score.total_right }}" aria-valuemin="0" aria-valuemax="100">{{ user.score.total_right }} right answers</div>
+    </div>
+    <br>
+    <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: {{ user.score.total_wrong }}%" aria-valuenow="{{ user.score.total_wrong }}" aria-valuemin="0" aria-valuemax="100">{{ user.score.total_wrong }} wrong answers</div>
+    </div>
 </div>
+<br><br>
 {% for article in articles %}
 <div class="card article-link">
-    <h2>Link</h2>
-    <a href="{{ article.link }}">ID: {{ article.id }}</a>
-    <a href="answer/?article={{ article.id }}&question={{ question.id }}&answer={{ answer }}">question query</a>
+    <h2>{{ article.title }}</h2>
+    <a href="{{ article.link }}">{{ article.title }}</a>
+    <a href="/questions/?article={{ article.id }}">View Questions</a>
 </div>
+<br>
 {% endfor %}
 <br>
+{% endblock %} 
 
-<div class="card questions questions-before">
-    <h2 id="question-text">Question text</h2>
-    <button class="btn btn-success">True</button>
-    <button class="btn btn-caution">Not Enough Information</button>
-    <button class="btn btn-danger">False</button>
-</div>
+{% block scripts %} 
+<script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+<script>
 
-<div class="hide cover"></div>
+</script>
 
-{% endblock %} {% block scripts %} {% endblock %}
+{% endblock %}

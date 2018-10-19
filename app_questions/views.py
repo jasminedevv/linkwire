@@ -36,16 +36,26 @@ def home(request):
     else:
         return redirect('accounts/login/')
 
-def questionaire(request):
-    id = request.article_id
-    article = Article.objects.get(id)
+def questions(request):
+    try:
+        article_id = request.GET.get('article')
+        log.pink(article_id)
+    except:
+        return HttpResponse(status=404)
+    article = Article.objects.get(id=article_id)
+    log.pink(article.title)
     questions = Question.objects.all().filter(article=article)
-    return render(request, 'flipper.html', {'questions':questions})
+    log.pink(questions)
+    return render(request, 'questions.html', {'questions':questions, "article": article})
 
 def ajax_test(request):
+    log.pink("AJAX REQUEST RECEIVED")
+    log.green(request.content)
     return HttpResponse(status=200)
 
-# TODO: user_profile.score
+# TODO: add automated tests for this
+# TODO for the love of god refactor this
+# TODO fix question out of bounds bug
 def answer(request):
     log.white("CHECKING ANSWER")
     question_id = request.GET.get('article')
@@ -58,10 +68,10 @@ def answer(request):
         answer = int( request.GET.get('answer') )
         log.white("Received answer: "+ str( answer )  )
     except:
-        return HttpResponse(status=400, content="Answer needs to be a number.")
-    # will only process 0, 1, or 2
-    if not isinstance(answer, int) and answer > 2 and answer < 0:
-        return HttpResponse(status=400, content="Invalid answer number.")
+        return HttpResponse(status=400, content="Answer needs to be a number. (probably blank)")
+    # most invalid inputs will get caught by the above try but isinstance included just in case:
+    if not (answer < 3 and answer >= 0):
+        return HttpResponse(status=400, content="Invalid answer. (probably out of bounds)")
     else:
         try:
             log.pink(request.user.username)
@@ -78,6 +88,6 @@ def answer(request):
         return HttpResponse(status=200, content="Answer correct.")
     else:
         log.red("ANSWER INCORRECT")
-        request.user.score.total_wrong -= 1
+        request.user.score.total_wrong += 1
         request.user.score.save()
         return HttpResponse(status=200, content="Answer incorrect.")

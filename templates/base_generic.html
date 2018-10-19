@@ -10,15 +10,131 @@
         crossorigin="anonymous">
     <link rel='stylesheet prefetch' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link href="https://fonts.googleapis.com/css?family=Abel|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="jaslib.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="favicon.ico" />
+
+<style>
+
+    body {
+    color: #555;
+    background-color: #f9f9f9;
+    font-family: 'Open Sans';
+    max-width: 100vw;
+  }
+
+  /*https://s-media-cache-ak0.pinimg.com/736x/d2/33/b3/d233b37a9bbe31cac99f99558fa085b3.jpg*/
+  .jumbotron {
+    /* below code is to add a background with gradient overlay to your jumbotron */
+    /* background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3)),
+      url("/path/to/image"); 
+    background-color: rgba(0,0,0,0.5);
+    */
+    background-color: #668899;
+    height: 500px;
+    background-size: cover;
+    margin: 6%;
+    color: #444;
+  }
+  
+  h1, h2, h3, h4 {
+    font-family: 'Abel', sans-serif;
+  }
+
+  h1 {
+    font-size: 70px;
+  }
+  
+  .header {
+    margin: 10%;
+  }
+  
+  #items {
+    margin: 5%;
+  }
+
+  .light-text {
+    color: #EFFDFF;
+  }
+  
+  .card-holder {
+    padding: 0px;
+    margin: 0;
+  }
+  
+  img {
+    width: 100%;
+    max-height: 100%;
+  }
+  
+  .light-card {
+    color: #555;
+    /* position: relative; */
+    /* margin: 10px;
+    padding: 10px; */
+    background: #fff;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+  }
+
+  .dark-card {
+    color: #ccc;
+    /* position: relative; */
+    /* margin: 10px;
+    padding: 10px; */
+    background: #333;
+    border: 1px solid #666;
+    transition: 0.3s;
+  }
+  
+  .round-corners {
+    border-radius: 10px;
+  }
+  
+  .shadow {
+    top: -3px;
+    left: -3px;
+    -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.53);
+    -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.53);
+    box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.53);
+  }
+  
+  .my-face {
+    width: 300px;
+    max-width: 100%;
+    border-radius: 100%;
+    margin: 0 auto;
+  }
+  
+  .light-section {
+    margin: 10%;
+    text-align: center;
+  }
+  .light-section a {
+    font-size: 3em;
+    color: #456;
+    /* margin: 10px; */
+  }
+  
+  .center {
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .footer {
+    color: #ccc;
+    padding: 2% 5% 1% 5%;
+    margin-top: 100px;
+    background-color: #034;
+    border-top: 5px solid #456;
+  }
+
+</style>
+
     {% block styles %} {% endblock %}
 </head>
 
 <body>
-    <div style="background-color: rgb(8, 57, 77)"><br><br></div>
-    <br><br>
+    <div style="background-color: rgb(8, 57, 77)"></div>
     {% block content %} {% endblock %}
 </body>
 
