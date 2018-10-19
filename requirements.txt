@@ -12,3 +12,4 @@ termcolor==1.1.0
 typed-ast==1.1.0
 whitenoise==4.1
 wrapt==1.10.11
+psycopg2==2.7.1 --no-binary psycopg2
