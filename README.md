@@ -12,7 +12,7 @@ A gamified critical thinking worksheet for adults.
 - Create a file called secret.py with content:
 ```python
 # secret.py
-key = ')8^((t2xw*p969aqa=h5cf*xl4+z^a(c(p40ix^%x&5z8tx8$g'
+key = ')8^((t2xw*p969aqa=h5cf*xl4+z^a(c(p40ix^%x&5z8tx8$g' # this is a sample secret key, not safe for the world
 ```
 - Next run:
 
